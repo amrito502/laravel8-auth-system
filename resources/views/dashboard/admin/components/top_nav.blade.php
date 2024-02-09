@@ -233,17 +233,17 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="wd-30 ht-30 rounded-circle" src="{{ asset('admin/images/faces/face1.jpg') }}" alt="profile">
+                    <img class="wd-30 ht-30 rounded-circle" src="{{ asset('assets/img/ceo.jpg') }}" alt="profile">
                 </a>
                 <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                     <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                         <div class="mb-3">
-                            <img class="wd-80 ht-80 rounded-circle" src="{{ asset('admin/images/faces/face1.jpg') }}"
+                            <img class="wd-80 ht-80 rounded-circle" src="{{ asset('assets/img/ceo.jpg') }}"
                                 alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">Amiah Burton</p>
-                            <p class="tx-12 text-muted">amiahburton@gmail.com</p>
+                            <p class="tx-16 fw-bolder" style="text-transform: capitalize;">{{ Auth::guard('admin')->user()->name }}</p>
+                            <p class="tx-12 text-muted">{{ Auth::guard('admin')->user()->email }}</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
@@ -274,7 +274,7 @@
                             <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
 
 
-    
+
                         </li>
                     </ul>
                 </div>

@@ -1,32 +1,31 @@
- <!-- ============Service Start============ -->
- <div class="container-xxl py-5">
-    <div class="container px-lg-5">
-        <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="position-relative d-inline text-primary ps-4">
-                Our Services
-            </h6>
-            <h2 class="mt-2">What Solutions We Provide</h2>
-        </div>
-        <div class="row g-4">
-            @forelse ($services as $key=>$service)
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                    <div class="service-icon flex-shrink-0">
-                        <h2 class="service_icon">{{ $key+1 }}</h2>
-                    </div>
-                    <h5 class="mb-3">{{ $service->service_name }}</h5>
-                    <p>
-                        {{ $service->service_title }}
-                    </p>
-                    <a class="btn px-3 mt-auto mx-auto" href="{{ route('app.services.details',$service->id) }}">Read More</a>
+ <!-- ======= Services Section ======= -->
+ <section id="services" class="services">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+            <h2 class="sec_title_name">Services</h2>
+            <p class="sec_title_t">Veritatis et dolores facere numquam et praesentium</p>
+        </header>
+
+        <div class="row gy-4">
+            @forelse ($services as $service_item)
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-box blue">
+                    {{-- <i class="ri-discuss-line icon"></i> --}}
+                    <i class="fa-brands fa-servicestack icon"></i>
+                    <h3>{{ $service_item->name }}</h3>
+                    <p style="font-size: 17px;font-family: 'Roboto';">{{ $service_item->title }}</p>
+                    <a href="" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             @empty
 
             @endforelse
 
-
         </div>
+
     </div>
-</div>
-<!-- ============Service End============ -->
+
+</section>
+<!-- End Services Section -->

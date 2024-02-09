@@ -14,11 +14,16 @@ class CreateHeroesTable extends Migration
     public function up()
     {
         Schema::create('heroes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('description');
-            $table->string('hero_button');
-            $table->boolean('status')->default(1);
+            $table->id('id');
+            $table->string('name')->nullable();
+            $table->mediumText('title')->nullable();
+            $table->longText('description')->nullable();
+            $table->text('image')->nullable();
+            $table->text('slug')->nullable();
+            $table->mediumText('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('mete_keyword')->nullable();
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }

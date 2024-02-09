@@ -2,294 +2,293 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title> Hire Me | SEO Consultant | SEO Expert in Bangladesh | Zaman IT Consulting</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta
-        content="hire me, SEO services in Bangladesh, SEO Consultant,technical seo,technical seo checklist, seo expert,seo experts, local seo experts, upwork seo, social media marketer,social media marketing services,Zaman IT Consulting,zamanitc"
-        name="Keywords">
-    <meta
-        content="Need an SEO Expert in Bangladesh? Hire me, the experienced SEO Consultant ready to skyrocket your online visibility today!"
-        name="description">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Favicon -->
-    <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- main Stylesheet -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/css/templatemo-kind-heart-charity.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
 
-<body class="bg-gray bg_body_img">
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12 d-flex flex-wrap">
+                    <p class="d-flex me-4 mb-0" data-aos="fade-up">
+                        <i class="bi-geo-alt me-2"></i>
+                        Pani Masjid, Mahishkhola, Narail
+                    </p>
 
-    <div class="container-xxl bg-white p-0">
-        <!-- =======Spinner Start======= -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- =======Spinner End======= -->
+                    <p class="d-flex mb-0"  data-aos="fade-down">
+                        <i class="bi-envelope me-2"></i>
 
-        <!-- ==========Navbar & Hero Start========== -->
-        <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0">
-                        Zaman IT
-                        <span class="fs-5 text-danger">Consulting</span>
-                    </h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-                        <a href="{{ route('app.home') }}" class="nav-item nav-link">Home</a>
-                        <a href="{{ route('app.about') }}" class="nav-item nav-link">About</a>
-                        <a href="{{ route('app.services') }}" class="nav-item nav-link">Service</a>
-                        <a href="{{ route('app.project') }}" class="nav-item nav-link">Project</a>
-                        <a href="{{ route('app.teams') }}" class="nav-item nav-link">Our Team</a>
-                        <a href="{{ route('app.blogs') }}" class="nav-item nav-link">Blogs</a>
-                        <a href="{{ route('app.contact') }}" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal">
-                        <i class="fa fa-search">
-                        </i>
-                    </butaton>
-                    <a href="https://www.upwork.com/freelancers/~015157301e2ac694dc?fbclid=IwAR3vYox7L-R_0VzgpyxjfJ2G23PWlBpZTtpKMzKTwS1bxNB7vv-LV97h6O4"
-                        class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3" target="_blank">Hire Me
-                    </a>
+                        <a href="mailto:info@company.com">info@zamanitc.com</a>
+                    </p>
                 </div>
-            </nav>
-            {{-- ======= banner========== --}}
 
+                <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                    <ul class="social-icon" data-aos="fade-right">
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
 
-            {{-- ========banner-end====== --}}
-        </div>
-        <!-- ==========Navbar & Hero End========== -->
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-facebook"></a>
+                        </li>
 
-        <!-- ============Full Screen Search Start============ -->
-        <div class="modal fade" id="searchModal" tabindex="-1">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content" style="background: rgba(29, 29, 39, 0.7)">
-                    <div class="modal-header border-0">
-                        <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center justify-content-center">
-                        <div class="input-group" style="max-width: 600px">
-                            <input type="text" class="form-control bg-transparent border-light p-3"
-                                placeholder="Type search keyword">
-                            <button class="btn btn-light px-4">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </div>
-                    </div>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-youtube"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <!-- ============Full Screen Search End============ -->
+    </header>
 
+    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+        <div class="container" data-aos="fade-up">
+            <a class="navbar-brand" href="{{ route('app.home') }}">
+                <img src="assets/images/logo.png" class="logo img-fluid" alt="Kind Heart Charity">
+                <span>
+                    Zaman IT
+                    <small>Consulting</small>
+                </span>
+            </a>
 
-        {{-- ============================================== --}}
-        {{-- ============================================== --}}
-            @yield('app_content')
-        {{-- ============================================== --}}
-        {{-- ============================================== --}}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="{{ route('app.home') }}">Home</a>
+                    </li>
 
-          <!-- ============Footer Start============ -->
-          <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p>
-                            <i class="fa fa-map-marker-alt me-3"></i>
-                            Pani Masjid,
-                            Mahishkhola, Narail
-                        </p>
-                        <p>
-                            <i class="fa fa-phone-alt me-3"></i>+880 1751957700
-                        </p>
-                        <p>
-                            <i class="fa fa-envelope me-3"></i>ashraf.nrl@gmail.com
-                        </p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social"
-                                href="https://twitter.com/Ashrafnarail?fbclid=IwAR3SiwgrJE79cPioilwgBuhdH5LtjkmcliGtvwDIZW8SZIqjfv5rZsHGnmw"
-                                target="_blank">
-                                <i class="fab fa-twitter">
-                                </i>
-                            </a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/ZamanITcon"
-                                target="_blank">
-                                <i class="fab fa-facebook-f">
-                                </i>
-                            </a>
-                            <a class="btn btn-outline-light btn-social" href="">
-                                <i class="fab fa-youtube">
-                                </i>
-                            </a>
-                            <a class="btn btn-outline-light btn-social" href="">
-                                <i class="fab fa-instagram">
-                                </i>
-                            </a>
-                            <a class="btn btn-outline-light btn-social"
-                                href="https://www.linkedin.com/in/a-k-m-ashrafuzzaman-aba26028/">
-                                <i class="fab fa-linkedin-in">
-                                </i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="{{ route('app.about') }}">About Us</a>
-                        <a class="btn btn-link" href="{{ route('app.contact') }}">Contact Us</a>
-                        <a class="btn btn-link" href="{{ route('app.teams') }}">Team Members</a>
-                        <a class="btn btn-link" href="{{ route('app.services') }}">Services</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Project Gallery</h5>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <img class="img-fluid footer_img_cus" src="{{ asset('assets/img/go.jpeg') }}" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid footer_img_cus" src="{{ asset('assets/img/driftervans.png') }}"
-                                    alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid footer_img_cus" src="{{ asset('assets/img/3.png') }}" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid footer_img_cus" src="{{ asset('assets/img/projectgo.png') }}" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid footer_img_cus" src="{{ asset('assets/img/lishfood.png') }}" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid footer_img_cus" src="{{ asset('assets/img/portfolio-6.jpg') }}"
-                                    alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Please submit Your Email.</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                                placeholder="Your Email" style="height: 48px">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2">
-                                <i class="fa fa-paper-plane text-primary fs-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-lg-5">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy;
-                            <a class="border-bottom" href="https://zamanitc.com/">zamanitc.com
-                            </a>
-                            ,All Right Reserved. Developed By
-                            <a class="border-bottom" href="https://zamanitc.com/">Akm Ashraf
-                            </a>
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="{{ route('app.home') }}">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="{{ route('app.services') }}">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="{{ route('app.project') }}">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="{{ route('app.teams') }}">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="">Guest Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="">My Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="{{ route('app.blogs') }}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="{{ route('app.contact') }}">Contact</a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link custom-btn custom-border-btn btn" href="">Hire Me</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- ============Footer End============ -->
+    </nav>
 
-        <!-- ============Back to Top============ -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2">
-            <i class="bi bi-arrow-up">
-            </i>
-        </a>
 
+
+
+
+
+
+
+
+    @yield('app_content')
+
+
+
+
+
+
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class=" d-flex align-items-center">
+              <!-- <img src="assets/img/logo.png" alt=""> -->
+              <h2>Zaman IT</h2>
+            </a>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
 
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
 
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
 
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contact Us</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
 
+          </div>
 
+        </div>
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Zaman IT</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">A.K.M. Ashrafuzzaman</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+    <!-- cdn js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="assets/js/owl.carousel.min.js"></script>
 
+    <!-- ===================== -->
 
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <!-- Template Main JS File -->
 
+    <!-- <script src="assets/js/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.sticky.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
+        AOS.init({
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 2000, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
-
-    <!-- ==========JavaScript Libraries========== -->
-    <!-- ======================================== -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('assets/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/isotope/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/lightbox/js/lightbox.min.js') }}"></script>
-    <!-- main Javascript -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-
-    <script type="text/javascript">
-        $(".submit-form").click(function(e) {
-            e.preventDefault();
-            var data = $('#form-data').serialize();
-            $.ajax({
-                type: 'post',
-                url: "{{ route('app.message.store') }}",
-                data: data,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                beforeSend: function() {
-                    $('#create_new').html('....Please wait');
-                },
-                success: function(response) {
-                    alert(response.success);
-                    $('#form-data').trigger("reset");
-                },
-                complete: function(response) {
-                    $('#create_new').html('Send New Message');
-                }
-            });
         });
     </script>
+    <script>
+        var typed = new Typed(".auto-type", {
+            strings: ["SEO Consultant", "IT Consultant", "SEO Service"],
+            typeSpeed: 150,
+            backSpeed: 150,
+            loop: true,
+        });
+
+        function logo_carouselInit() {
+            $('.owl-carousel.logo_active').owlCarousel({
+                dots: false,
+                loop: true,
+                margin: 30,
+                stagePadding: 2,
+                smartSpeed: 1000,
+                autoplay: true,
+                autoplayTimeout: 1500,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    576: {
+                        items: 3,
+                    },
+                    768: {
+                        items: 4,
+                    },
+                    992: {
+                        items: 5
+                    }
+                }
+            });
+        }
+        logo_carouselInit();
+    </script>
+
 </body>
 
 </html>

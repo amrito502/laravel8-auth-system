@@ -14,9 +14,14 @@ class CreateLogosTable extends Migration
     public function up()
     {
         Schema::create('logos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('logo_text');
-	        $table->string('image');
+            $table->id('id');
+            $table->string('logo_text')->nullable();
+	        $table->text('image')->nullable();
+            $table->text('slug')->nullable();
+            $table->mediumText('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('mete_keyword')->nullable();
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }

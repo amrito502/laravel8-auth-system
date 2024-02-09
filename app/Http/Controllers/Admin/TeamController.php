@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class TeamController extends Controller
 {
     public function admin_team(){
-        $teams = Teams::all();
+        $teams = Teams::latest()->get();
         return view('dashboard.admin.pages.teams.teams',compact('teams'));
     }
 
@@ -23,28 +23,33 @@ class TeamController extends Controller
         $request->validate([
             'name'=>'required',
             'profession'=>'required',
+            'about'=>'required',
             'image'=>'required',
         ]);
 
 
-        $Teams = new Teams;
-        $Teams->id = $request->Teams;
-        $Teams->name = $request->name;
-        $Teams->profession = $request->profession;
-        $Teams->facebook = $request->facebook;
-        $Teams->instagram = $request->instagram;
-        $Teams->twitter = $request->twitter;
-        $Teams->linkedin = $request->linkedin;
+        $team = new Teams;
+        $team->name = $request->name;
+        $team->profession = $request->profession;
+        $team->about = $request->about;
+        $team->facebook = $request->facebook;
+        $team->instagram = $request->instagram;
+        $team->twitter = $request->twitter;
+        $team->linkedin = $request->linkedin;
+        $team->slug = strtolower(str_replace(' ', '-', $request->name));
+        $team->meta_title = $request->meta_title;
+        $team->meta_description = $request->meta_description;
+        $team->mete_keyword = $request->mete_keyword;
+        $team->status = $request->status == true ? '1' : '0';
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('images/teams',$filename);
-            $Teams->image = $filename;
-
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/teams/', $fileName);
+            $team->image = $fileName;
         }
-        $Teams->save();
+
+        $team->save();
         return redirect()->route('admin.team')->with('success','Successfully Created ');
 
 
@@ -56,34 +61,37 @@ class TeamController extends Controller
     }
 
     public function admin_update_team(Request $request, $id){
-        $teams = Teams::findOrFail($id);
         $request->validate([
             'name'=>'required',
             'profession'=>'required',
         ]);
 
-        $imageName = '';
-        $deleteOldImage =  'images/teams/'.$teams->image;
-        if($image = $request->file('image')){
-            if(file_exists($deleteOldImage)){
-                file::delete($deleteOldImage);
+
+        $team = Teams::find($id);
+        $team->name = $request->name;
+        $team->profession = $request->profession;
+        $team->facebook = $request->facebook;
+        $team->instagram = $request->instagram;
+        $team->twitter = $request->twitter;
+        $team->linkedin = $request->linkedin;
+        $team->slug = strtolower(str_replace(' ', '-', $request->name));
+        $team->meta_title = $request->meta_title;
+        $team->meta_description = $request->meta_description;
+        $team->mete_keyword = $request->mete_keyword;
+        $team->status = $request->status == true ? '1' : '0';
+
+        if ($request->hasFile('image')) {
+            $destination = 'images/teams/' . $team->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
             }
-            $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/teams',$imageName);
-        }else{
-            $imageName = $teams->image;
+
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/teams/', $fileName);
+            $team->image = $fileName;
         }
-
-        Teams::where('id',$id)->update([
-            'name'=>$request->name,
-            'profession'=>$request->profession,
-            'facebook'=>$request->facebook,
-            'instagram'=>$request->instagram,
-            'twitter'=>$request->twitter,
-            'linkedin'=>$request->linkedin,
-            'image'=>$imageName,
-        ]);
-
+        $team->update();
         return redirect()->route('admin.team')->with('success','Successfully Updated ');
     }
 

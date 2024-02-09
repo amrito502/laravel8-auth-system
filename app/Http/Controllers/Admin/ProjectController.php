@@ -23,25 +23,27 @@ class ProjectController extends Controller
             'name'=>'required',
             'title'=>'required',
             'image'=>'required',
-            'description'=>'required',
         ]);
 
 
-        $Project = new Project;
-        $Project->id = $request->Project;
-        $Project->name = $request->name;
-        $Project->title = $request->title;
-        $Project->description = $request->description;
+        $project = new Project;
+        $project->name = $request->name;
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->slug = strtolower(str_replace(' ', '-', $request->title));
+        $project->meta_title = $request->meta_title;
+        $project->meta_description = $request->meta_description;
+        $project->mete_keyword = $request->mete_keyword;
+        $project->status = $request->status == true ? '1' : '0';
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('images/projects',$filename);
-            $Project->image = $filename;
-
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/projects/', $fileName);
+            $project->image = $fileName;
         }
-        $Project->save();
+
+        $project->save();
         return redirect()->route('admin.project')->with('success','Successfully Created ');
 
     }
@@ -58,25 +60,28 @@ class ProjectController extends Controller
             'title'=>'required',
         ]);
 
-        $imageName = '';
-        $deleteOldImage =  'images/projects/'.$projects->image;
-        if($image = $request->file('image')){
-            if(file_exists($deleteOldImage)){
-                file::delete($deleteOldImage);
+        $project = Project::find($id);
+        $project->name = $request->name;
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->slug = strtolower(str_replace(' ', '-', $request->title));
+        $project->meta_title = $request->meta_title;
+        $project->meta_description = $request->meta_description;
+        $project->mete_keyword = $request->mete_keyword;
+        $project->status = $request->status == true ? '1' : '0';
+
+        if ($request->hasFile('image')) {
+            $destination = 'images/projects/' . $project->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
             }
-            $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/projects',$imageName);
-        }else{
-            $imageName = $projects->image;
+
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/projects/', $fileName);
+            $project->image = $fileName;
         }
-
-        Project::where('id',$id)->update([
-            'name'=>$request->name,
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'image'=>$imageName,
-        ]);
-
+        $project->update();
         return redirect()->route('admin.project')->with('success','Successfully Updated ');
     }
 

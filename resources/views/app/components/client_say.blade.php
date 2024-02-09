@@ -1,74 +1,67 @@
-  <!-- ============Testimonial Start============ -->
-  <div class="container-xxl bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5 px-lg-5">
-        <div class="owl-carousel testimonial-carousel">
-            <div style="height: 270px!important"
-                class="testimonial-item bg-transparent border rounded text-white p-4">
-                <i class="fa fa-quote-left fa-2x mb-3"></i>
-                <p>
-                    It was a pleasure work with Akm Professional and always ready to
-                    work. He has done more than what I asked him! Well done
-                </p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-1.jpg"
-                        style="width: 50px; height: 50px">
-                    <div class="ps-3">
-                        <h6 class="text-white mb-1">Michael</h6>
-                        <small>CEO || Clearfield</small>
-                    </div>
+<section class="testimonial-section section-padding section-bg testimonial_cus_wrap">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-12 mx-auto">
+                <h2 class="mb-lg-3">Happy Customers</h2>
+
+                    <div id="testimonial-carousel" class="carousel carousel-fade slide" data-bs-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                               <div class="carousel-caption">
+                                    <h4 class="carousel-title">Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito charity theme</h4>
+
+                                    <small class="carousel-name"><span class="carousel-name-title">Maria</span>, Boss</small>
+                               </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-caption">
+                                    <h4 class="carousel-title">Sed leo nisl, posuere at molestie ac, suscipit auctor mauris quis metus tempor orci</h4>
+
+                                    <small class="carousel-name"><span class="carousel-name-title">Thomas</span>, Partner</small>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-caption">
+                                    <h4 class="carousel-title">Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito charity theme</h4>
+
+                                    <small class="carousel-name"><span class="carousel-name-title">Jane</span>, Advisor</small>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-caption">
+                                    <h4 class="carousel-title">Sed leo nisl, posuere at molestie ac, suscipit auctor mauris quis metus tempor orci</h4>
+
+                                    <small class="carousel-name"><span class="carousel-name-title">Bob</span>, Entreprenuer</small>
+                               </div>
+                            </div>
+
+                              <ol class="carousel-indicators">
+                                   <li data-bs-target="#testimonial-carousel" data-bs-slide-to="0" class="active">
+                                        <img src="assets/images/avatar/portrait-beautiful-young-woman-standing-grey-wall.jpg" class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                   </li>
+
+                                   <li data-bs-target="#testimonial-carousel" data-bs-slide-to="1" class="">
+                                        <img src="assets/images/avatar/portrait-young-redhead-bearded-male.jpg" class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                   </li>
+
+                                   <li data-bs-target="#testimonial-carousel" data-bs-slide-to="2" class="">
+                                        <img src="assets/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg" class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                   </li>
+
+                                   <li data-bs-target="#testimonial-carousel" data-bs-slide-to="3" class="">
+                                        <img src="assets/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                   </li>
+                              </ol>
+
+                     </div>
                 </div>
             </div>
-            <div style="height: 270px!important"
-                class="testimonial-item  bg-transparent border rounded text-white p-4">
-                <i class="fa fa-quote-left fa-2x mb-3"></i>
-                <p>
-                    We had an amazing experience working with Zaman it Consulting.
-                    They provided us with the tools and expertise we needed to
-                    achieve our goals
-                </p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-2.jpg"
-                        style="width: 50px; height: 50px">
-                    <div class="ps-3">
-                        <h6 class="text-white mb-1">David</h6>
-                        <small>Manager || Zynex</small>
-                    </div>
-                </div>
-            </div>
-            <div style="height: 270px!important"
-                class="testimonial-item bg-transparent border rounded text-white p-4">
-                <i class="fa fa-quote-left fa-2x mb-3"></i>
-                <p>
-                    Zaman it Consulting has been a great partner for our web
-                    development projects. They are provide top-notch service at a
-                    great price
-                </p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-3.jpg"
-                        style="width: 50px; height: 50px">
-                    <div class="ps-3">
-                        <h6 class="text-white mb-1">Olivia</h6>
-                        <small>CEO || Hudson Technologies</small>
-                    </div>
-                </div>
-            </div>
-            <div style="height: 270px!important"
-                class="testimonial-item bg-transparent border rounded text-white p-4">
-                <i class="fa fa-quote-left fa-2x mb-3"></i>
-                <p>
-                    Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                    stet amet eirmod eos labore diam
-                </p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-4.jpg"
-                        style="width: 50px; height: 50px">
-                    <div class="ps-3">
-                        <h6 class="text-white mb-1">Anna</h6>
-                        <small>Profession</small>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
-</div>
-<!-- ============Testimonial End============ -->
+</section>

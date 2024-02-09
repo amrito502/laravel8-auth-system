@@ -28,11 +28,12 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="5%" scope="col">ID</th>
-                                    <th style="10%" scope="col">Team Member Name</th>
-                                    <th style="10%" scope="col">Profession</th>
-                                    <th style="10%" scope="col">Team Member Photo</th>
-                                    <th style="30%" scope="col">Action</th>
+                                    <th>ID</th>
+                                    <th>Member Name</th>
+                                    <th>Profession</th>
+                                    <th>Photos</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -45,6 +46,7 @@
                                         <td>{{ $team->profession }}</td>
                                         <td><img src="{{ asset('images/teams/' . $team->image) }}" style="width: 100px"
                                                 alt="img" /></td>
+                                        <td>{{ $team->status == '1' ? 'Hidden':'Shown' }}</td>
                                         <td class="center">
                                             <a class="btn btn-sm btn-info" href="{{ route('admin.edit.team', $team->id) }}">
                                                 <i class="halflings-icon white edit"></i> Edit

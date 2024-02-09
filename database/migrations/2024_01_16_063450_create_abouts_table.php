@@ -15,10 +15,14 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('description');
-            $table->string('about_list_tag');
-            $table->boolean('status')->default(1);
+            $table->mediumText('title')->nullable();
+            $table->longText('description')->nullable();
+            $table->mediumText('slug')->nullable();
+            $table->text('image')->nullable();
+            $table->mediumText('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('mete_keyword')->nullable();
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }

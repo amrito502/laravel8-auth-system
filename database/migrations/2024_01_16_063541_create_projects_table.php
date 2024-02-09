@@ -14,12 +14,16 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id('id');
             $table->string('name');
-            $table->string('title');
-	        $table->string('image');
-	        $table->text('description');
-            $table->boolean('status')->default(1);
+            $table->mediumText('title');
+            $table->mediumText('slug');
+            $table->longText('description')->nullable();
+            $table->text('image')->nullable();
+            $table->mediumText('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('mete_keyword')->nullable();
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }

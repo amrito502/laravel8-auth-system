@@ -12,5 +12,9 @@ class Logo extends Model
     protected $fillable = [
         'logo_text',
         'image',
+        'slug',
+        'meta_title',
+        'meta_description',
+        'mete_keyword',
     ];
 }

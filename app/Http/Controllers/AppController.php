@@ -12,16 +12,38 @@ Use App\Models\User;
 use App\Models\Hero;
 use App\Models\Admin;
 use App\Models\Message;
-
+use App\Models\ClientReview;
+use App\Models\ClientSay;
+use App\Models\Guestpost;
+Use App\Models\Resources;
+use App\Models\Subscribe;
 class AppController extends Controller
 {
     // ========home=====================
     public function home(){
-        $home_title = "Home";
-        $services = Services::all();
-        $teams = Teams::all();
-        $projects = Project::all();
-        return view('app.pages.home', compact('services','teams','projects','home_title'));
+        $services = Services::where('status','0')->get();
+        $teams = Teams::where('status','0')->get();
+        $projects = Project::where('status','0')->get();
+        $hero = Hero::where('status','0')->get();
+        $review = ClientReview::where('status','0')->get();
+        $about = About::where('status','0')->get();
+        $teams = Teams::where('status','0')->get();
+
+        $data = [
+            'services'  => $services,
+            'teams'   => $teams,
+            'projects' => $projects,
+            'hero' => $hero,
+            'review' => $review,
+            'about' => $about,
+            'teams' => $teams,
+        ];
+        return view('app.pages.home')->with($data);
+    }
+
+    public function hero($id){
+        $hero = Hero::find($id);
+
     }
 
     public function service_details($id){

@@ -8,14 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Teams extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'name',
-        'profession',
-        'facebook',
-        'instagram',
-        'twitter',
-        'linkedin',
-        'image',
-    ];
+    protected $guarded = [];
 }

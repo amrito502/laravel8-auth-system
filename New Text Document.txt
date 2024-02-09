@@ -1,0 +1,11 @@
+J2tJns.qhjd~
+
+user: zamanitc_portfolio_project
+
+db:  zamanitc_portfolio_project
+
+admin login info
+
+https://zamanitc.com/admin/login
+email: ashraf.nrl@gmail.com
+pass: @ashraf@

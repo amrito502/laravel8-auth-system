@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class ServicesController extends Controller
 {
     public function admin_services(){
-        $Services = Services::all();
+        $Services = Services::latest()->get();
         return view('dashboard.admin.pages.services.services',compact('Services'));
     }
     public function admin_add_services(){
@@ -18,28 +18,31 @@ class ServicesController extends Controller
     }
 
     public function admin_store_services(Request $request){
+
         $request->validate([
-            'service_name'=>'required',
-            'service_title'=>'required',
-            'image'=>'required',
+            'name'=>'required',
+            'title'=>'required',
         ]);
 
+        $service = new Services;
+        $service->name = $request->name;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->slug = strtolower(str_replace(' ', '-', $request->title));
+        $service->meta_title = $request->meta_title;
+        $service->meta_description = $request->meta_description;
+        $service->mete_keyword = $request->mete_keyword;
+        $service->status = $request->status == true ? '1' : '0';
 
-        $Services = new Services;
-        $Services->id = $request->Services;
-        $Services->service_name = $request->service_name;
-        $Services->service_title = $request->service_title;
-        $Services->description = $request->description;
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('images/services',$filename);
-            $Services->image = $filename;
-
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/services/', $fileName);
+            $service->image = $fileName;
         }
-        $Services->save();
+
+        $service->save();
         return redirect()->route('admin.services')->with('success','Successfully Created ');
 
 
@@ -51,31 +54,35 @@ class ServicesController extends Controller
     }
 
     public function admin_update_services(Request $request, $id){
-        $services = Services::findOrFail($id);
         $request->validate([
-            'service_name'=>'required',
-            'service_title'=>'required',
+            'name'=>'required',
+            'title'=>'required',
         ]);
 
-        $imageName = '';
-        $deleteOldImage =  'images/services/'.$services->image;
-        if($image = $request->file('image')){
-            if(file_exists($deleteOldImage)){
-                file::delete($deleteOldImage);
+        $service = Services::find($id);
+        $service->name = $request->name;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->slug = strtolower(str_replace(' ', '-', $request->title));
+        $service->meta_title = $request->meta_title;
+        $service->meta_description = $request->meta_description;
+        $service->mete_keyword = $request->mete_keyword;
+        $service->status = $request->status == true ? '1' : '0';
+
+
+        if ($request->hasFile('image')) {
+            $destination = 'images/services/' . $service->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
             }
-            $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/services',$imageName);
-        }else{
-            $imageName = $services->image;
+
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/services/', $fileName);
+            $service->image = $fileName;
         }
 
-        Services::where('id',$id)->update([
-            'service_name'=>$request->service_name,
-            'service_title'=>$request->service_title,
-            'description'=>$request->description,
-            'image'=>$imageName,
-        ]);
-
+        $service->update();
         return redirect()->route('admin.services')->with('success','Successfully Updated ');
     }
 

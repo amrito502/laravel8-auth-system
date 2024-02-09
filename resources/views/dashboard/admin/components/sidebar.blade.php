@@ -23,26 +23,82 @@
             <li class="nav-item">
                 <a href="{{ route('admin.logo') }}" class="nav-link">
                     <i class="link-icon" data-feather="message-square"></i>
-                    <span class="link-title">Logo</span>
+                    <span class="link-title">Add Logo</span>
                 </a>
             </li>
+
+
+
+
+
+            <li class="nav-item">
+                <a href="{{ route('admin.about') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">About</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a href="{{ route('admin.services') }}" class="nav-link">
                     <i class="link-icon" data-feather="message-square"></i>
                     <span class="link-title">Services</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('admin.project') }}" class="nav-link">
                     <i class="link-icon" data-feather="message-square"></i>
                     <span class="link-title">Projects</span>
                 </a>
             </li>
-            </li>
+
             <li class="nav-item">
                 <a href="{{ route('admin.team') }}" class="nav-link">
                     <i class="link-icon" data-feather="message-square"></i>
                     <span class="link-title">Our Teams</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.review') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">Client Review</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.subscribe') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">Subscribe</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.hero') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">Slider Content</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.guestpost') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">Guest Post</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.resources') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">My Resources</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="{{ route('admin.clientsay') }}" class="nav-link">
+                    <i class="link-icon" data-feather="message-square"></i>
+                    <span class="link-title">Testimonial</span>
                 </a>
             </li>
             </li>
@@ -108,13 +164,7 @@
                 <div class="collapse" id="settings">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Update Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Update Password</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Forget Password</a>
+                            <a href="{{ route('admin.all.password') }}" class="nav-link">Update Profile</a>
                         </li>
                     </ul>
                 </div>

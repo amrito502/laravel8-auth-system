@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class LogoController extends Controller
 {
     public function admin_logo(){
-        $logos = Logo::all();
+        $logos = Logo::latest()->get();
         return view('dashboard.admin.pages.logo.logo', compact('logos'));
     }
     public function admin_add_logo(){
@@ -23,22 +23,22 @@ class LogoController extends Controller
             'image'=>'required',
         ]);
 
+        $logo = new Logo;
+        $logo->logo_text = $request->logo_text;
+        $logo->slug = strtolower(str_replace(' ', '-', $request->logo_text));
+        $logo->meta_title = $request->meta_title;
+        $logo->meta_description = $request->meta_description;
+        $logo->mete_keyword = $request->mete_keyword;
+        $logo->status = $request->status == true ? '1' : '0';
 
-        $Logo = new Logo;
-        $Logo->id = $request->Logo;
-        $Logo->logo_text = $request->logo_text;
-
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('images/logo',$filename);
-            $Logo->image = $filename;
-
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/logo/', $fileName);
+            $logo->image = $fileName;
         }
-        $Logo->save();
+        $logo->save();
         return redirect()->route('admin.logo')->with('success','Successfully Created ');
-
 
     }
 
@@ -48,28 +48,33 @@ class LogoController extends Controller
     }
 
     public function admin_update_logo(Request $request, $id){
-        $logo = Logo::findOrFail($id);
+
         $request->validate([
             'logo_text'=>'required',
         ]);
 
-        $imageName = '';
-        $deleteOldImage =  'images/logo/'.$logo->image;
-        if($image = $request->file('image')){
-            if(file_exists($deleteOldImage)){
-                file::delete($deleteOldImage);
+        $logo = Logo::find($id);
+        $logo->logo_text = $request->logo_text;
+        $logo->slug = strtolower(str_replace(' ', '-', $request->logo_text));
+        $logo->meta_title = $request->meta_title;
+        $logo->meta_description = $request->meta_description;
+        $logo->mete_keyword = $request->mete_keyword;
+        $logo->status = $request->status == true ? '1' : '0';
+
+
+        if ($request->hasFile('image')) {
+            $destination = 'images/logo/' . $logo->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
             }
-            $imageName = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/logo',$imageName);
-        }else{
-            $imageName = $logo->image;
+
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('images/logo/', $fileName);
+            $logo->image = $fileName;
         }
 
-        Logo::where('id',$id)->update([
-            'logo_text'=>$request->logo_text,
-            'image'=>$imageName,
-        ]);
-
+        $logo->update();
         return redirect()->route('admin.logo')->with('success','Successfully Updated ');
     }
 

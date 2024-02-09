@@ -28,11 +28,12 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="5%" scope="col">ID</th>
-                                    <th style="10%" scope="col">Service Name</th>
-                                    <th style="10%" scope="col">Service Title</th>
-                                    <th style="10%" scope="col">Service Image</th>
-                                    <th style="30%" scope="col">Action</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Title</th>
+                                    <th>Photos</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -40,11 +41,12 @@
                                 @foreach ($Services as $key => $service)
                                     <tr>
 
-                                        <td>{{ $service->id }}</td>
-                                        <td>{{ $service->service_name }}</td>
-                                        <td>{{ $service->service_title }}</td>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $service->name }}</td>
+                                        <td>{{ $service->title }}</td>
                                         <td><img src="{{ asset('images/Services/' . $service->image) }}" style="width: 100px"
                                                 alt="img" /></td>
+                                        <td>{{ $service->status == '1' ? 'Hidden':'Shown' }}</td>
                                         <td class="center">
                                             <a class="btn btn-sm btn-info" href="{{ route('admin.edit.services', $service->id) }}">
                                                 <i class="halflings-icon white edit"></i> Edit

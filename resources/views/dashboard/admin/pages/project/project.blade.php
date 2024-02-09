@@ -28,11 +28,12 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="5%" scope="col">ID</th>
-                                    <th style="10%" scope="col">project Name</th>
-                                    <th style="10%" scope="col">project Title</th>
-                                    <th style="10%" scope="col">project Image</th>
-                                    <th style="30%" scope="col">Action</th>
+                                    <th>ID</th>
+                                    <th>project Name</th>
+                                    <th>project Title</th>
+                                    <th>project Image</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
@@ -40,11 +41,12 @@
                                 @foreach ($projects as $key => $project)
                                     <tr>
 
-                                        <td>{{ $project->id }}</td>
+                                        <td>{{ $key+1 }}</td>
                                         <td>{{ $project->name }}</td>
                                         <td>{{ $project->title }}</td>
                                         <td><img src="{{ asset('images/projects/' . $project->image) }}" style="width: 100px"
                                                 alt="img" /></td>
+                                         <td>{{ $project->status == '1' ? 'Hidden':'Shown' }}</td>
                                         <td class="center">
                                             <a class="btn btn-sm btn-info" href="{{ route('admin.edit.project', $project->id) }}">
                                                 <i class="halflings-icon white edit"></i> Edit

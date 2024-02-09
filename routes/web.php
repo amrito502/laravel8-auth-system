@@ -13,8 +13,13 @@ use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\TeamController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AppController;
-
-
+use App\Http\Controllers\Admin\UpdateInfoController;
+use App\Http\Controllers\ClientReviewController;
+use App\Http\Controllers\GuestpostController;
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\ResourcesController;
+use App\Http\Controllers\ClientSayController;
+use App\Http\Controllers\SubscribeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +35,8 @@ use App\Http\Controllers\AppController;
 
 Route::get('/', [AppController::class,'home'])->name('app.home');
 // about================
-Route::get('/app/about', [AppController::class,'about'])->name('app.about');
+Route::get('/about', [AppController::class,'about'])->name('app.about');
+Route::get('/hero/{id}', [AppController::class,'hero'])->name('app.hero');
 
 // services=============
 Route::get('/app/services', [AppController::class,'services'])->name('app.services');
@@ -109,23 +115,65 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/hero', [HeroController::class,'admin_hero'])->name('hero');
         Route::get('/add/hero', [HeroController::class,'admin_add_hero'])->name('add.hero');
         Route::post('/store/hero',[HeroController::class,'admin_store_hero'])->name('store.hero');
-
-        // Route::get('/edit/hero/{id}',[HeroController::class,'admin_edit_hero'])->name('edit.hero');
-        // Route::post('/update/hero/{id}',[HeroController::class,'admin_update_hero'])->name('update.hero');
-        // Route::get('/delete/hero/{id}',[HeroController::class,'admin_delete_hero'])->name('delete.hero');
-        // Route::get('/hero/status{heroStatus}',[HeroController::class,'change_status']);
+        Route::get('/edit/hero/{id}',[HeroController::class,'admin_edit_hero'])->name('edit.hero');
+        Route::post('/update/hero/{id}',[HeroController::class,'admin_update_hero'])->name('update.hero');
+        Route::get('/delete/hero/{id}',[HeroController::class,'admin_delete_hero'])->name('delete.hero');
         // =================hero-end=============
 
         // =================about-start==========
         Route::get('/about', [AboutController::class,'admin_about'])->name('about');
         Route::get('/add/about', [AboutController::class,'admin_add_about'])->name('add.about');
+        Route::post('/store/about',[AboutController::class,'admin_store_about'])->name('store.about');
+        Route::get('/edit/about/{id}',[AboutController::class,'admin_edit_about'])->name('edit.about');
+        Route::post('/update/about/{id}',[AboutController::class,'admin_update_about'])->name('update.about');
+        Route::get('/delete/about/{id}',[AboutController::class,'admin_delete_about'])->name('delete.about');
         // =================about-end=============
+
+         // =================client-review-start==========
+         Route::get('/review', [ClientReviewController::class,'admin_review'])->name('review');
+         Route::get('/add/review', [ClientReviewController::class,'admin_add_review'])->name('add.review');
+         Route::post('/store/review',[ClientReviewController::class,'admin_store_review'])->name('store.review');
+         Route::get('/edit/review/{id}',[ClientReviewController::class,'admin_edit_review'])->name('edit.review');
+         Route::post('/update/review/{id}',[ClientReviewController::class,'admin_update_review'])->name('update.review');
+         Route::get('/delete/review/{id}',[ClientReviewController::class,'admin_delete_review'])->name('delete.review');
+         // =================client-review-end=============
+
+         // =================guest-post-start==========
+         Route::get('/guestpost', [GuestpostController::class,'admin_guestpost'])->name('guestpost');
+         Route::get('/add/guestpost', [GuestpostController::class,'admin_add_guestpost'])->name('add.guestpost');
+         Route::post('/store/guestpost',[GuestpostController::class,'admin_store_guestpost'])->name('store.guestpost');
+         Route::get('/edit/guestpost/{id}',[GuestpostController::class,'admin_edit_guestpost'])->name('edit.guestpost');
+         Route::post('/update/guestpost/{id}',[GuestpostController::class,'admin_update_guestpost'])->name('update.guestpost');
+         Route::get('/delete/guestpost/{id}',[GuestpostController::class,'admin_delete_guestpost'])->name('delete.guestpost');
+         // =================guest-post-end=============
+
+         // =================my-resources-start==========
+         Route::get('/resources', [ResourcesController::class,'admin_resources'])->name('resources');
+         Route::get('/add/resources', [ResourcesController::class,'admin_add_resources'])->name('add.resources');
+         Route::post('/store/resources',[ResourcesController::class,'admin_store_resources'])->name('store.resources');
+         Route::get('/edit/resources/{id}',[ResourcesController::class,'admin_edit_resources'])->name('edit.resources');
+         Route::post('/update/resources/{id}',[ResourcesController::class,'admin_update_resources'])->name('update.resources');
+         Route::get('/delete/resources/{id}',[ResourcesController::class,'admin_delete_resources'])->name('delete.resources');
+         // =================my-resources-end=============
+
+        // =================client-say-start==========
+        Route::get('/clientsay', [ClientSayController::class,'admin_clientsay'])->name('clientsay');
+        Route::get('/add/clientsay', [ClientSayController::class,'admin_add_clientsay'])->name('add.clientsay');
+        Route::post('/store/clientsay',[ClientSayController::class,'admin_store_clientsay'])->name('store.clientsay');
+        Route::get('/edit/clientsay/{id}',[ClientSayController::class,'admin_edit_clientsay'])->name('edit.clientsay');
+        Route::post('/update/clientsay/{id}',[ClientSayController::class,'admin_update_clientsay'])->name('update.clientsay');
+        Route::get('/delete/clientsay/{id}',[ClientSayController::class,'admin_delete_clientsay'])->name('delete.clientsay');
+        // =================client-say-end=============
+
+        // =================subscribe-start==========
+        Route::get('/subscribe', [SubscribeController::class,'admin_subscribe'])->name('subscribe');
+        Route::get('/delete/subscribe/{id}',[SubscribeController::class,'admin_delete_subscribe'])->name('delete.subscribe');
+        // =================subscribe-end=============
 
         // =================services-start=============
         Route::get('/services', [ServicesController::class,'admin_services'])->name('services');
         Route::get('/add/services', [ServicesController::class,'admin_add_services'])->name('add.services');
         Route::post('/store/services',[ServicesController::class,'admin_store_services'])->name('store.services');
-
         Route::get('/edit/services/{id}',[ServicesController::class,'admin_edit_services'])->name('edit.services');
         Route::post('/update/services/{id}',[ServicesController::class,'admin_update_services'])->name('update.services');
         Route::get('/delete/services/{id}',[ServicesController::class,'admin_delete_services'])->name('delete.services');
@@ -161,6 +209,17 @@ Route::prefix('admin')->name('admin.')->group(function(){
         // message====================
         Route::get('/all/message', [AppController::class,'admin_message'])->name('admin.all.message');
         Route::get('/delete/message/{id}',[AppController::class,'admin_message_delete'])->name('delete.message');
+
+
+
+        // update profile
+        Route::get('/all/admins', [UpdateInfoController::class,'admin_password'])->name('all.password');
+        Route::get('/add/new/admins', [UpdateInfoController::class,'add_new_admin'])->name('add.new.admin');
+        Route::post('/store/password',[UpdateInfoController::class,'store_password'])->name('store.password');
+        Route::get('/edit/password/{id}',[UpdateInfoController::class,'edit_password'])->name('edit.password');
+        Route::post('/update/password/{id}',[UpdateInfoController::class,'update_password'])->name('update.password');
+        Route::get('/delete/password/{id}',[UpdateInfoController::class,'delete_password'])->name('delete.password');
+
 
 
 
