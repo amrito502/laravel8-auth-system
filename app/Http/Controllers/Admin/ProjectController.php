@@ -29,6 +29,7 @@ class ProjectController extends Controller
         $project = new Project;
         $project->name = $request->name;
         $project->title = $request->title;
+        $project->website_link = $request->website_link;
         $project->description = $request->description;
         $project->slug = strtolower(str_replace(' ', '-', $request->title));
         $project->meta_title = $request->meta_title;
@@ -63,6 +64,7 @@ class ProjectController extends Controller
         $project = Project::find($id);
         $project->name = $request->name;
         $project->title = $request->title;
+        $project->website_link = $request->website_link;
         $project->description = $request->description;
         $project->slug = strtolower(str_replace(' ', '-', $request->title));
         $project->meta_title = $request->meta_title;

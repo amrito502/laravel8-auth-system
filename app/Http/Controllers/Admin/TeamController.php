@@ -70,6 +70,7 @@ class TeamController extends Controller
         $team = Teams::find($id);
         $team->name = $request->name;
         $team->profession = $request->profession;
+        $team->about = $request->about;
         $team->facebook = $request->facebook;
         $team->instagram = $request->instagram;
         $team->twitter = $request->twitter;

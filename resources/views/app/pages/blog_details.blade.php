@@ -1,4 +1,7 @@
 @extends('app.app_master')
+@section("title","$blog->meta_title")
+@section("meta_description","$blog->meta_description")
+@section("mete_keyword","$blog->mete_keyword")
 @section('app_content')
 @include('app.components.banner.other_page_banner')
 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">

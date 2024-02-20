@@ -16,7 +16,7 @@
                     <i class="fa-brands fa-servicestack icon"></i>
                     <h3>{{ $service_item->name }}</h3>
                     <p style="font-size: 17px;font-family: 'Roboto';">{{ $service_item->title }}</p>
-                    <a href="" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                    <a href="{{ url('services-details/'.$service_item->slug) }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             @empty

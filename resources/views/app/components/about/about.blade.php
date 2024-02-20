@@ -19,7 +19,7 @@
                            {{ $about_item->description }}
                         </p>
                         <div class="text-center text-lg-start">
-                            <a href="#"
+                            <a href="https://www.upwork.com/freelancers/~015157301e2ac694dc" target="_blank"
                                 class="about_hire_me_cus btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                 <span>Hire Me</span>
                                 <i class="bi bi-arrow-right"></i>

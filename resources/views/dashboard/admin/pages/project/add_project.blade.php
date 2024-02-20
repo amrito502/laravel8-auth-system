@@ -72,6 +72,21 @@
 
                     <div class="row mb-3">
                         <div class="col-lg-3">
+                            <label for="website_link" class="col-form-label">Project Website Link</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="website_link" id="website_link" type="text"
+                                placeholder="Project Link (Optional)..">
+                            <span class="text-danger">
+                                @error('website_link')
+                                {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-3">
                             <label for="image" class="col-form-label">Choose Image</label>
                         </div>
                         <div class="col-lg-8">

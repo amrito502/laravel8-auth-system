@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="service">
-                    <img src="{{ asset('images/services/' . $service->image) }}" style="width: 100%!important;" alt="img" />
+                    <img src="{{ asset('images/services/' . $service_dts->image) }}" style="width: 100%!important;" alt="img" />
                     <div class="services_content">
-                        <p class="service_date"><i class="fa fa-calendar"></i> <a href="#"><span class="">{{ $service->created_at }}</span></a></p>
-                        <h3 class="service_d_name">{{ $service->service_name }}</h3>
-                        <h6 class="service_d_title">{{ $service->service_title }}</h6>
-                        <p class="service_d_desc">{{ $service->description }}</p>
+                        <p class="service_date"><span class="resources_date_icon"><i class="fa-solid fa-calendar-days"></i> {{ \Carbon\Carbon::parse($service_dts->created_at)->isoFormat('MMM Do YYYY') }}</span></p>
+                        <h3 class="service_d_name">{{ $service_dts->name }}</h3>
+                        <h6 class="service_d_title">{{ $service_dts->title }}</h6>
+                        <p class="service_d_desc">{!! $service_dts->description !!}</p>
                     </div>
                 </div>
             </div>

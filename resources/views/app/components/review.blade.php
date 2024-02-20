@@ -15,6 +15,11 @@
         margin: 5px 0 2px 0;
         text-align: center;
     }
+    .client_review_title{
+        color: #4154F1;
+        font-size: 23px;
+        margin-bottom: 16px;
+    }
     .review_rating{
     font-size: 18px;
     color: rgb(122 122 122);
@@ -29,7 +34,7 @@
 </head>
 <body>
     <section class="section-padding" style="background-color: #fff;">
-        <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-right">
             <div class="row">
             <h5 class="text-center client_review_title" data-aos="fade-up">Client Review Screenshot</h5>
 

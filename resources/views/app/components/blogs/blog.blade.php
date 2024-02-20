@@ -1,70 +1,290 @@
-<section class="blog-section padding">
-    <div class="container">
-        <div class="blog-wrap row">
-            <div class="col-lg-8 sm-padding">
+<!DOCTYPE html>
+<html lang="en">
 
-                <div class="row">
-                    @forelse ($blogs as $blog)
-                        <div class="col-md-12 col-sm-6 my-3">
-                            <div class="shadow">
-                                <div class="main">
-                                    <div class="row p-4">
-                                        <div class="col-md-4">
-                                            <img src="{{ asset('images/blogs/' . $blog->image) }}" style="width: 100%!important; height: 200px;" alt="img" />
+<head>
+    <style>
+        .resources__section {
+            margin-bottom: 100px;
+        }
+
+        .main__resources {}
+
+        .resources__header {}
+
+        .resources_title_main {
+            color: #e3009b !important;
+            font-size: 43px;
+            font-family: cursive;
+            font-weight: 600;
+            margin: 100px 0 60px 0;
+            border-bottom: 2px solid #f141ea;
+            padding: 0 0 30px 0;
+        }
+
+        .resources_content {}
+
+        .left_resources_sidebar {
+            background: lightpink;
+        }
+
+        .resources_sidebar_title {
+            background: #d9006c;
+            padding: 10px;
+            border-radius: 32px;
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            font-family: cursive;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .right_resources_body {
+            background: rgb(244, 236, 236);
+        }
+
+        .resource__item {
+            margin-bottom: 30px;
+            margin-left: 10px;
+            padding: 0 0 10px 0px !important;
+        }
+
+        .resource__item:first-child {
+            margin: 0 0 30px 10px;
+        }
+
+        .blog_post_img {
+            width: 100%;
+            height: 175px;
+        }
+
+        .blog_title_cus {
+            font-family: cursive;
+            font-weight: 600;
+            font-size: 27px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .resources_title {
+            font-family: cursive;
+            font-weight: 500;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .resources_datetime {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 216px;
+            font-family: fangsong;
+            font-size: 14px;
+            padding: 0px 0 10px 0;
+            color: #f9425d;
+        }
+
+        .resources_admin {}
+
+        .blog_date_icon {
+            margin-right: 120px;
+        }
+
+        .blog_short_desc {
+            font-family: 'Roboto';
+            font-size: 15px;
+            padding-right: 20px;
+            text-align: left;
+            line-height: 25px;
+            word-spacing: 2.5px;
+            letter-spacing: 0.2px;
+            color: #000;
+        }
+
+        .resources_cus_btn {
+            background: #e7697c;
+            color: #fff !important;
+            transition: .4s;
+            padding: 5px 11px;
+            font-family: cursive;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .resources_cus_btn:hover {
+            background: #FFB6C1 !important;
+            color: #181616 !important;
+        }
+
+        . {}
+
+        .ad_show {
+            width: 100%;
+            height: 400px;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .active>.page-link {
+            background: #FFB6C1 !important;
+            border: 1px solid #FFB6C1 !important
+        }
+
+        .page-link:hover {
+            color: #f9425d !important;
+        }
+
+        .page-link {
+            color: #f9425d !important;
+        }
+
+        .popular_res_item_sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 0 0 20px 19px;
+        }
+
+        .latest_post_title {
+            margin-bottom: 10px;
+            font-size: 19px;
+            font-family: cursive;
+            font-weight: 500;
+            text-decoration: underline;
+            color: #ed3939 !important;
+            transition: .4s;
+        }
+
+        .latest_post_title:hover {
+            color: #5f39ed !important;
+        }
+
+        .latest_post_img {
+            width: 100%;
+            height: 114px;
+        }
+        .recent_post_date{
+            display: inline-block;
+            margin-top: 8px;
+            color: #000000;
+            font-size: 14px;
+        }
+
+        .adv_title_dts{
+            margin-top: 100px;
+            margin-bottom: 13px;
+            background: #d9006c;
+            padding: 10px;
+            border-radius: 32px;
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            font-family: cursive;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .ad_show_dts{
+            width: 100%;
+            height: 360px;
+            background: #dfdfdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -38px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="resources__section">
+        <div class="main__resources">
+            <div class="container">
+                <div class="resources__header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="resources_title_main text-center text-success">Recently Posted My Blog!</h4>
+                        </div>
+                    </div>
+                    <div class="resources_content">
+                        <div class="row">
+
+                            <div class="col-md-8 py-5 right_resources_body">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        @forelse ($blogs as $blog)
+                                        <div class="resource__item shadow">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img class="blog_post_img"
+                                                        src="{{ asset('images/blogs/' . $blog->image) }}"
+                                                        alt="resources">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4 class="blog_title_cus">{{ $blog->title }}</h4>
+                                                    <div class="resources_datetime">
+                                                        <span class="resources_admin"><i class="fa-solid fa-user"></i>
+                                                            Admin</span>
+                                                        <span class="blog_date_icon"><i
+                                                                class="fa-solid fa-calendar-days"></i> {{
+                                                            \Carbon\Carbon::parse($blog->created_at)->isoFormat('MMM Do
+                                                            YYYY') }}</span>
+                                                    </div>
+                                                    <p class="blog_short_desc">{{ $blog->short_description }}</p>
+                                                    <a href="{{ url('blog-details/'. $blog->slug) }}" class="btn btn-sm resources_cus_btn">Read More</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-8">
-                                            <h3 class="blog_title_post">{{ $blog->title }}</h3>
-                                            <span class="blog_date">{{ $blog->created_at }}</span>
-                                            <p class="blog_desc">{{ $blog->desc }}</p>
-                                            <a href="{{ route('app.blogs.details', $blog->id) }}" class="blog_btn">Read More</a>
+                                        @empty
+                                        <p class="text-center text-danger">Blog is not available Right Now!</p>
+                                        @endforelse
+                                        {!! $blogs->links() !!}
+                                    </div>
+
+                                    {{-- <div class="col-md-3">
+                                        <div class="ad_show shadow">
+                                            <h5 class="text-center text-warning">Show Advertising</h5>
                                         </div>
+                                    </div> --}}
+                                </div>
+                            </div>
+                            <div class="col-md-4 py-5 left_resources_sidebar">
+                                <h5 class="resources_sidebar_title"><i class="fa-solid fa-fire"></i> Latest Blogs :</h5>
+                                <div class="popular_res_item_sidebar">
+                                    @forelse ($recent_post as $recentPost)
+                                    <div class="row my-3">
+                                        <div class="col-md-5">
+                                            <img class="latest_post_img"
+                                                src="{{ asset('images/blogs/' . $recentPost->image) }}" alt="img" />
+                                        </div>
+                                        <div class="col-md-7">
+                                            <a class="latest_post_title" href="{{ url('blog-details/'. $recentPost->slug) }}"><i class="fa-solid fa-right-to-bracket"></i> {{
+                                                $recentPost->title }}</a><br>
+                                            <span class="recent_post_date"><i class="fa-solid fa-calendar-days"></i> {{
+                                                \Carbon\Carbon::parse($recentPost->created_at)->isoFormat('MMM Do YYYY')
+                                                }}</span>
+                                        </div>
+                                    </div>
+                                    @empty
+                                    <p class="text-center text-danger">Popular Post is Not Available!</p>
+                                    @endforelse
+                                </div>
+                                <div class="adverting_sidebar">
+                                    <h6 class="adv_title_dts">Advertising</h6>
+                                    <div class="ad_show_dts shadow">
+                                        <h5 style="color: #ff0cdf!important;" class="text-center">Show Advertising</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @empty
-                    @endforelse
-                    {!! $blogs->links() !!}
-                </div>
-
-            </div>
-            <div class="col-lg-4 padding-15 my-4">
-                <div class="sidebar-wrap">
-
-                    <div class="widget-content">
-                        <h4>Recent Posts</h4>
-                        <ul class="thumb-post">
-
-                            @foreach ($recent_post as $recentPost)
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <img style="width:100%!important" class="" src="{{ asset('images/blogs/' . $recentPost->image) }}" alt="img" />
-                                    </div>
-                                    <div class="col-md-7">
-                                        <a href="{{ route('app.blogs.details', $recentPost->id) }}" class="recent_title_post">{{ $recentPost->title }}</a>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-
-                        </ul>
-                    </div>
-                    <div class="widget-content">
-                        <h4>Tag Clouds</h4>
-                        <ul class="tags">
-                            <li><a href="#">SEO</a></li>
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">Linkbuilding</a></li>
-                            <li><a href="#">App development</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">Digital Marketing</a></li>
-                            <li><a href="#">Domine & Hosting</a></li>
-                            <li><a href="#">IT Course</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</body>
+
+</html>

@@ -1,4 +1,7 @@
 @extends('app.app_master')
+@section("title","$about->meta_title")
+@section("meta_description","$about->meta_description")
+@section("mete_keyword","$about->mete_keyword")
 @section('app_content')
 @include('app.components.banner.other_page_banner')
 @include('app.components.about.about')

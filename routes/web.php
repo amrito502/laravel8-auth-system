@@ -39,22 +39,30 @@ Route::get('/about', [AppController::class,'about'])->name('app.about');
 Route::get('/hero/{id}', [AppController::class,'hero'])->name('app.hero');
 
 // services=============
-Route::get('/app/services', [AppController::class,'services'])->name('app.services');
-Route::get('/app/services/details/{id}', [AppController::class,'service_details'])->name('app.services.details');
+Route::get('/services', [AppController::class,'services'])->name('app.services');
+Route::get('/services-details/{service_slug}', [AppController::class,'service_details'])->name('app.services.details');
 
 // project==============
-Route::get('/app/project', [AppController::class,'projects'])->name('app.project');
+Route::get('/project', [AppController::class,'projects'])->name('app.project');
+Route::get('/project-details/{project_slug}', [AppController::class,'projects_dtls'])->name('app.project.dtls');
 
 // teams================
-Route::get('/app/teams', [AppController::class,'teams'])->name('app.teams');
+Route::get('/teams', [AppController::class,'teams'])->name('app.teams');
 
 // blogs================
-Route::get('/app/blogs', [AppController::class,'blogs'])->name('app.blogs');
-Route::get('/app/blogs/details/{id}', [AppController::class,'blogs_details'])->name('app.blogs.details');
+Route::get('/blog', [AppController::class,'blogs'])->name('app.blogs');
+Route::get('/blog-details/{post_slug}', [AppController::class,'blogs_details'])->name('app.blogs.details');
+
+// guest post
+Route::get('/guest-post', [AppController::class,'guest_post'])->name('app.guestpost');
+
+// my resources
+Route::get('/my-resources', [AppController::class,'resources'])->name('app.resources');
+Route::get('/resources-details/{resources_slug}', [AppController::class,'resources_details'])->name('app.resources.details');
 
 // contact==============
-Route::get('/app/contact', [AppController::class,'contact'])->name('app.contact');
-Route::post('/app/message', [AppController::class,'contact_store'])->name('app.message.store');
+Route::get('/contact', [AppController::class,'contact'])->name('app.contact');
+Route::post('/message', [AppController::class,'contact_store'])->name('app.message.store');
 
 
 

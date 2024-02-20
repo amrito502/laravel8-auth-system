@@ -17,6 +17,9 @@ use App\Models\ClientSay;
 use App\Models\Guestpost;
 Use App\Models\Resources;
 use App\Models\Subscribe;
+use Carbon\Carbon;
+
+
 class AppController extends Controller
 {
     // ========home=====================
@@ -46,10 +49,7 @@ class AppController extends Controller
 
     }
 
-    public function service_details($id){
-        $service = Services::findOrFail($id);
-        return view('app.pages.services_details',compact('service'));
-    }
+
 
     // =========about===================
     public function about(){
@@ -58,44 +58,73 @@ class AppController extends Controller
         return view('app.pages.about',compact('teams','about_Title'));
     }
 
-    // ==========services================
-    public function services(){
-        $about_title = "About Us";
-        $services = Services::all();
-        return view('app.pages.services', compact('services','about_title'));
-    }
+
 
 
 
     // ==========projects=================
     public function projects(){
-        $project_title = "Projects";
-        $projects = Project::all();
-        return view('app.pages.project',compact('projects','project_title'));
+        $projects = Project::where('status','0')->latest()->get();
+        return view('app.pages.project',compact('projects'));
+    }
+
+    public function projects_dtls(string $project_slug){
+        $all_project = Project::where('slug',$project_slug)->where('status','0')->first();
+        $project_dts = Project::where('id',$all_project->id)->where('status','0')->first();
+        return view('app.pages.project_dtls',compact('project_dts'));
     }
 
 
     // ===========teams==============
     public function teams(){
         $teams_title = "Teams";
-        $teams = Teams::all();
+        $teams = Teams::where('status','0')->latest()->get();
         return view('app.pages.teams',compact('teams','teams_title'));
+    }
+// ================guestpost================
+    public function guest_post(){
+        $guest_post = Guestpost::where('status','0')->get();
+        return view('app.pages.guestpost',compact('guest_post'));
+    }
+
+       // ==========services================
+       public function services(){
+        $services = Services::where('status','0')->latest()->get();
+        return view('app.pages.services', compact('services'));
+    }
+    public function service_details(string $service_slug){
+        $all_services = Services::where('slug',$service_slug)->where('status','0')->first();
+        $service_dts = Services::where('id',$all_services->id)->where('status','0')->first();
+        return view('app.pages.services_details',compact('service_dts'));
+    }
+
+// ===========resources===============
+    public function resources(){
+        $popular_resources = Resources::where('status','0')->latest()->take(10)->get();
+        $resources = Resources::where('status','0')->latest()->paginate(5);
+        return view('app.pages.resources',compact('resources','popular_resources'));
+    }
+
+    public function resources_details(string $resources_slug){
+        $popular_resources = Resources::latest()->get()->take(10);
+        $resources_all = Resources::where('slug',$resources_slug)->where('status','0')->first();
+        $resources_dtls = Resources::where('id',$resources_all->id)->where('status','0')->first();
+        return view('app.pages.resources_datails',compact('resources_dtls','popular_resources'));
     }
 
 
     // ==========blogs=============
     public function blogs(){
-        $recent_post = Blogs::orderBy('created_at', 'desc')->take(4)->get();
-        $blogs = Blogs::orderBy('created_at', 'desc')->paginate(3);
-        $blog_title = "Blogs";
-        return view('app.pages.blog',compact('blogs','recent_post','blog_title'));
+        $recent_post = Blogs::where('status','0')->latest()->take(10)->get();
+        $blogs = Blogs::where('status','0')->latest()->paginate(5);
+        return view('app.pages.blog',compact('blogs','recent_post'));
     }
 
-    public function blogs_details($id){
-        $blog_details_title = "Blogs Details";
-        $blog = Blogs::findOrFail($id);
-        $recent_post = Blogs::orderBy('created_at', 'desc')->take(4)->get();
-        return view('app.pages.blog_details',compact('blog','blog_details_title','recent_post'));
+    public function blogs_details($post_slug){
+        $recent_post = Blogs::where('status','0')->latest()->take(10)->get();
+        $all_blog = Blogs::where('slug',$post_slug)->where('status','0')->first();
+        $blog = Blogs::where('id',$all_blog->id)->where('status','0')->first();
+        return view('app.pages.blog_details',compact('blog','recent_post'));
     }
 
 

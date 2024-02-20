@@ -67,6 +67,17 @@
                             </span>
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-3">
+                            <label for="about" class="col-form-label">About Team Member</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="about" id="about" type="text"  value="{{ $team->about }}">
+                                <span class="text-danger">@error('about'){{ $message }}@enderror</span>
+                        </div>
+                    </div>
+
                     <div class="row mb-3">
                         <div class="col-lg-3">
                             <label for="defaultconfig" class="col-form-label">Add Facebook</label>
